@@ -1,0 +1,45 @@
+VoidEnderman:
+  Type: ZOMBIE
+  Faction: Void
+  Drops:
+    - TOTEM_OF_UNDYING
+  Display: "<dark_purple>Void Enderman"
+  Health: 150
+  Damage: 34
+  Disguise: ENDERMAN setBurning false setDynamicName true
+  Modules:
+    ThreatTable: true
+  DamageModifiers:
+    - FALL 0
+    - BLOCK_EXPLOSION 0
+    - ENTITY_EXPLOSION 0
+    - CONTACT 0
+    - LIGHTNING 0
+    - VOID 0.5
+    - POISON 0
+    - WITHER 0
+    - DROWNING 0
+    - DRAGON_BREATH 0
+    - MELTING 0
+    - MAGIC 0
+    - PROJECTILE 0.75
+  AIGoalSelectors:
+    - clear
+    - meleeattack
+    - lookatplayers
+    - randomstroll
+    - float
+  Options:
+    MovementSpeed: 0.4
+    KnockbackResistance: 1
+    MaxCombatDistance: 12
+    HeldBlock: OBSIDIAN
+    Silent: true
+  Skills:
+    # Applies potions
+    - potion{type=BLINDESS;duration=3;lvl=2} @PlayersInRadius{r=8} ~onAttack
+    - potion{type=WITHER;duration=3;lvl=2} @target ~onTimer:30
+    - potion{t=SLOW;d=3;l=2} @PIR{r=10} ~onAttack
+
+    # Damages nearby players
+    - damage{amount=10;ignoreArmor=true} @PIR{r=10} ~onCombat
