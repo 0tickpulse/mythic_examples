@@ -26,6 +26,7 @@ You are welcome to contribute to this repository. However, there are a few condi
 | Pack IDs                            | `PascalCase`  |
 | Targeter IDs                        | `PascalCase`  |
 | Disguise entity IDs                 | `MACRO_CASE`  |
+| Drop IDs (like `STONE`)             | `MACRO_CASE`  |
 
 For example:
 

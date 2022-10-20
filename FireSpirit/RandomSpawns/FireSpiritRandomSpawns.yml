@@ -1,0 +1,7 @@
+FireSpirits:
+  MobType: FireSpirit
+  Worlds: world_nether
+  Chance: 0.025
+  Priority: 1
+  Action: ADD
+  UseWorldScaling: true

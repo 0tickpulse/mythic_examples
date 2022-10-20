@@ -1,0 +1,16 @@
+# Ignites anything it attacks
+FireSpiritAttack:
+  Skills:
+    - effect:particles{p=flame;a=30;speed=0.2}
+    - ignite{t=100}
+FireSpiritDeath:
+  Skills:
+    - effect:particles{p=flame;a=30;speed=0.2} @SelfLocation
+    - effect:sound{s=entity.generic.explode} @SelfLocation
+    - basedamage{m=1;type=FIRE} @PIR{r=5}
+    - remove @Self
+FireSpiritHurtSelf:
+  Conditions:
+    - inBlock{b=WATER}
+  Skills:
+    - damage{a=1} @Self
