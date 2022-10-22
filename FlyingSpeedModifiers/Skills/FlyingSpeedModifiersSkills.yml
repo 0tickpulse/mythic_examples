@@ -1,0 +1,26 @@
+Speed_ChangeFlyingSpeed_Initialize:
+  Skills:
+  - setvariable{var=skill.x;type=FLOAT;val=<caster.l.x.double>}
+  - setvariable{var=skill.y;type=FLOAT;val=<caster.l.y.double>}
+  - setvariable{var=skill.z;type=FLOAT;val=<caster.l.z.double>}
+  - delay <skill.interval>
+  - skill{s=Speed_ChangeFlyingSpeed}
+ 
+Speed_ChangeFlyingSpeed:
+  Skills:
+  - setvariable{var=skill.speed_x;type=FLOAT;val=abs(<caster.l.x.double>-<skill.var.x>)}
+  - setvariable{var=skill.speed_y;type=FLOAT;val=abs(<caster.l.y.double>-<skill.var.y>)}
+  - setvariable{var=skill.speed_z;type=FLOAT;val=abs(<caster.l.z.double>-<skill.var.z>)}
+  - setvariable{var=skill.speed_abs;type=FLOAT;val=sqrt(<skill.var.speed_x>^2+<skill.var.speed_y>^2+<skill.var.speed_z>^2)}
+  - setvariable{var=skill.speed_multiplyneed;type=FLOAT;val=<skill.speedcap>/<skill.var.speed_abs>}
+  - setvariable{var=skill.x;type=FLOAT;val=<caster.l.x.double>}
+  - setvariable{var=skill.y;type=FLOAT;val=<caster.l.y.double>}
+  - setvariable{var=skill.z;type=FLOAT;val=<caster.l.z.double>}
+  - velocity{
+      mode=MULTIPLY;
+      x=<skill.var.speed_multiplyneed>;
+      y=<skill.var.speed_multiplyneed>;
+      z=<skill.var.speed_multiplyneed>;
+    } ?variableinrange{var=skill.speed_abs;val=><skill.speedcap>}
+  - delay <skill.interval>
+  - skill{s=Speed_ChangeFlyingSpeed}
